@@ -7,5 +7,13 @@ app.listen(port, () => {
 });
 
 app.get("/", (req, res) => {
-  res.send('hello world')
+  res.send("<h1>hello</h1>")
 });
+
+app.get("/about", (req, res) => {
+  res.send("<h1>Hi, this is about me</h1>")
+})
+
+app.get("/contact", (req, res) => {
+  res.send("<h1>call me if you ... <br>are sad: 0332812366 </h1>")
+})
