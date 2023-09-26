@@ -21,7 +21,7 @@ function passwordCheck(req, res, next) {
 
 app.use(passwordCheck);
 
-app.get("/", (req, res) => {
+app.get("/go-to-public", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
@@ -40,3 +40,10 @@ app.listen(port, () => {
 app.get("/about", (req, res) => {
   res.send("<h1>Hi, this is about me</h1>");
 });
+
+app.get("/", (req, res) => {
+  res.render("index.ejs", {
+    dayType: "a weekday",
+    advice: "it's time to work hard",
+  })
+})
