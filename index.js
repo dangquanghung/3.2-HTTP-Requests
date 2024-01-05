@@ -42,8 +42,11 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    dayType: "a weekday",
-    advice: "it's time to work hard",
-  })
-})
+  const data = {
+    title: "EJS Tags",
+    seconds: new Date().getSeconds(),
+    items: ["apple", "banana", "cherry"],
+    htmlContent: "<em>This is some em text</em>",
+  };
+  res.render("index.ejs", data);
+});
