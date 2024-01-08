@@ -15,14 +15,20 @@
   </h1>
   <p>Current second: <%= seconds %>
   </p>
-  <ul>
-    <% for(let i=0; i<items.length; i++){ %>
-      <li>
-        <%= items[i] %>
-      </li>
+  <% if (items.length> 0) { %>
+
+    <ul>
+      <% for(let i=0; i<items.length; i++){ %>
+        <li>
+          <%= items[i] %>
+        </li>
+        <% } %>
+    </ul>
+
+    <% } else { %>
+      <p>No items to display</p>
       <% } %>
-  </ul>
-  <p><%- htmlContent %></p>
+        <p><%- htmlContent %></p>
 </body>
 
 <%- include("footer.ejs") %>
