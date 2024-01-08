@@ -18,11 +18,11 @@
   <% if (items.length> 0) { %>
 
     <ul>
-      <% for(let i=0; i<items.length; i++){ %>
+      <% items.forEach(element=> { %>
         <li>
-          <%= items[i] %>
+          <%= element %>
         </li>
-        <% } %>
+        <% }) %>
     </ul>
 
     <% } else { %>

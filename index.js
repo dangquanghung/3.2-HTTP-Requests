@@ -22,7 +22,24 @@ function passwordCheck(req, res, next) {
 app.use(passwordCheck);
 
 app.get("/go-to-public", (req, res) => {
+
   res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/count", (req, res) => {
+
+  res.sendFile(__dirname + "/public/count.html");
+  }
+);
+
+app.post("/submit",(req, res) => {
+  let data = req.body;
+  let fullName = data.fName + data.lName; 
+  let nameWithoutSpace = fullName.replace(/ /g, "").toString().trim();
+  let length = nameWithoutSpace.length;
+
+  const fullLength = {length};
+  res.render("count.ejs", fullLength);
 });
 
 app.post("/check", (req, res) => {
