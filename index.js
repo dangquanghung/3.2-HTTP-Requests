@@ -4,6 +4,7 @@ import { dirname } from "path";
 import { fileURLToPath } from "url";
 
 const app = express();
+app.use(express.static("public"));
 const port = 3000;
 
 var userIsAuthorised = false;
@@ -54,8 +55,13 @@ app.post("/check", (req, res) => {
 app.listen(port, () => {
   console.log(`Server run at port ${port}`);
 });
+
 app.get("/about", (req, res) => {
-  res.send("<h1>Hi, this is about me</h1>");
+  res.render("about.ejs");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");
 });
 
 app.get("/", (req, res) => {
